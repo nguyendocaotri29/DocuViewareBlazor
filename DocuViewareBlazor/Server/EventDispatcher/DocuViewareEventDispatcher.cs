@@ -10,22 +10,22 @@ namespace DocuViewareBlazor.Server.EventDispatcher
     {
         public static void PageTransferReady(object sender, PageTransferReadyEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public static void NewDocumentLoaded(object sender, NewDocumentLoadedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public static void LoadDocumentError(object sender, LoadDocumentErrorEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public static void CustomAction(object sender, CustomActionEventArgs e)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     }
 }
