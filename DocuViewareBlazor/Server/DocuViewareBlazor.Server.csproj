@@ -16,8 +16,7 @@
 
   <ItemGroup>
     <Reference Include="GdPicture.NET.14.WEB.DocuVieware.Core">
-      <HintPath>D:\GdPicture.NET 14\Redist\DocuVieware (.NET Core 3.1)\GdPicture.NET.14.WEB.DocuVieware.Core.dll</HintPath>
-      <Private>true</Private>
+      <HintPath>lib\GdPicture.NET.14.WEB.DocuVieware.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 
