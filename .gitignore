@@ -361,3 +361,4 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/DocuViewareBlazor/Server/Properties/ServiceDependencies/DocuViewareBlazorServer20210625230407 - Web Deploy/profile.arm.json

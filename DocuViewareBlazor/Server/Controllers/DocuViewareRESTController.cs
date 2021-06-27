@@ -5,11 +5,18 @@ using System.Net;
 using System.Net.Http;
 using GdPicture14.WEB;
 using DocuViewareBlazor.Shared;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DocuViewareBlazor.Server.Controllers
 {
     public class DocuViewareRESTController : ControllerBase
     {
+        private readonly IWebHostEnvironment _env;
+        public DocuViewareRESTController(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
+
         [HttpPost]
         [Route("api/DocuViewareREST/GetDocuViewareControl")]
         public IActionResult GetDocuViewareControl([FromBody] DocuViewareConfiguration controlConfiguration)
@@ -41,10 +48,14 @@ namespace DocuViewareBlazor.Server.Controllers
                 EnableMouseModeButtons = controlConfiguration.EnableMouseModeButtons,
                 EnableFormFieldsEdition = controlConfiguration.EnableFormFieldsEdition,
                 EnableTwainAcquisitionButton = controlConfiguration.EnableTwainAcquisitionButton,
-                MaxUploadSize = 36700160 // 35MB
+                PageDisplayMode = GdPicture14.PageDisplayMode.SinglePageView,
+                MaxUploadSize = 36700160, // 35MB
+                Height = "600px",
+                OpenZoomMode = GdPicture14.ViewerZoomMode.ZoomModeHeightViewer
             };
             using StringWriter controlOutput = new StringWriter();
             docuVieware.RenderControl(controlOutput);
+            docuVieware.LoadFromFile(Path.Combine(_env.ContentRootPath, "Storage", "multipage_tiff_example.tif"));
             return new OkObjectResult(new DocuViewareRESTOutputResponse
             {
                 HtmlContent = controlOutput.ToString()
